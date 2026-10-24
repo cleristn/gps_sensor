@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 
 # biblioteca com a lógica (usada pelo programa e pelo teste)
-add_library(leitor_gps_lib src/nmea.cpp)
+add_library(leitor_gps_lib src/nmea.cpp src/serial_io.cpp)
 
 # programa principal
 add_executable(leitor_gps src/main.cpp)
