@@ -18,13 +18,13 @@ def test_interpretar():
 def test_lixo():
     GGA = 'sdkasjfsdfkds'
     dados = interpretar(GGA)
-    assert dados == None
+    assert dados is None
 
 # teste com fix igual a zero
 def test_fix():
     GGA = '$GPGGA,123519,4807.038,N,01131.000,E,0,00,0.9,545.4,M,46.9,M,,*4E'
     dados = interpretar(GGA)
-    assert dados == None
+    assert dados is None
 
 # testar utilizando o identificador GN
 def test_interpretar_gn():
@@ -42,3 +42,7 @@ def test_campo_vazio():
     GGA = '$GNGGA,123519,,,,,0,00,,,,,,,,*75'
     dados = interpretar(GGA)
     assert dados is None
+
+def test_fix_sem_coordenadas():
+    GGA = '$GNGGA,123519,,,,,1,00,,,,,,,*74'
+    assert interpretar(GGA) is None
