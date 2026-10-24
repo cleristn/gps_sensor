@@ -12,7 +12,8 @@ int main(int argc, char* argv[]) {
         std::cout << "Não foi possível abrir a porta " << porta << "\n";
         return 1;
     }
-
+    
+    int mostrou = 0;
     while (true) {
         std::string linha = leitor.ler_linha();
         if (linha.empty()) continue;
@@ -25,6 +26,8 @@ int main(int argc, char* argv[]) {
                       << " lon " << dados->longitude
                       << " alt " << dados->altitude
                       << " sat " << dados->satelites << "\n";
+	    if(!mostrou) std::cout << "MAPA: https://www.google.com/maps?q=" << dados->latitude << "," << dados->longitude << std::endl;
+	    mostrou = 1;
         }
     }
 }

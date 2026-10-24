@@ -9,6 +9,7 @@ def main():
     leitor = LeitorSerial(porta)
 
     try:
+        mostrou = False
         while True:
             linha = leitor.ler_linha()
             if not linha:
@@ -17,6 +18,9 @@ def main():
             dados = interpretar(linha)
             if dados:
                 print("DADOS:", dados)
+                if not mostrou:
+                    print(f"MAPA: https://www.google.com/maps?q={dados['latitude']},{dados['longitude']}")
+                    mostrou = True
     except KeyboardInterrupt:
         pass
     finally:
