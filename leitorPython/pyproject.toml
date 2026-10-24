@@ -1,0 +1,17 @@
+[project]
+name = "leitor-gps"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["pyserial", "pynmea2"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+leitor-gps = "leitor_gps.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
